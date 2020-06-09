@@ -1,0 +1,93 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <title>Website</title>
+    <link rel="stylesheet" type="text/css" href="style.css" >
+    <script src="jquery.js"></script>
+    
+</head>
+<body>
+    <header>
+        <a href="index.html"><img class="logo" src="images/logo.png" ></a> 
+        <nav>
+            <ul>
+                <li><a href="#">Accuil</a></li>
+                <li class="col"><a href="#">Meuble &ensp;</a>
+                    <ul class="sous">
+                        <li><a href="#">Portes</a></li>
+                        <li><a href="#">Fenêtres</a></li>
+                        <li><a href="#">Armoires</a></li>
+                        <li><a href="#">Bureaux</a></li>
+                    </ul>
+                </li>
+                <li><a href="#">Commende</a></li>
+                <li><a href="#">Emploie</a></li>
+                <li><a href="#">Contact</a></li>
+                <li><a id="lc" href="#">A propos</a></li>
+            </ul>
+        </nav>
+    </header>
+    <!------------------------------->
+    <div id="content">
+        <center>
+            <div class="slider">
+                <img src="images/img4.jpg" class="active">
+                <img src="images/img5.jpg" >
+                <img src="images/img6.jpg" >
+                <img src="images/img7.jpg" >
+            </div>
+            
+            <input onclick="changeSlide('previous')" id="back" type="image" src="images/back.png">
+            <input  onclick="changeSlide('next')" id="next" type="image" src="images/next.png">
+            
+            
+            
+        </center>
+    </div>
+    <!------------------------------->
+    <footer>
+        
+    </footer>
+    
+    <script>
+            var i = 4000 ; 
+            function myFn() {changeSlide('next');}
+            var interval = setInterval(myFn,i);
+             
+            function changeSlide(direction){
+                
+                var currentImg = $('.active');
+                var nextImg = currentImg.next();
+                var previousImg = currentImg.prev();
+                
+                if (direction == 'next'){
+
+                clearInterval(interval); 
+                interval = setInterval(myFn, i);
+
+                    if (nextImg.length)/*****/
+                        nextImg.addClass('active');
+                   
+                    else
+                        $('.slider img').first().addClass('active');
+                }
+                else{
+
+                clearInterval(interval); 
+                interval = setInterval(myFn, i);
+
+                    if (previousImg.length)
+                        previousImg.addClass('active');
+                       
+                    else
+                        $('.slider img').last().addClass('active');
+                         
+                }
+                currentImg.removeClass('active');
+                
+
+            }
+        
+    </script>
+</body>
+</html>
