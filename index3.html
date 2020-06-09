@@ -1,0 +1,129 @@
+<html>
+<head>
+    <title>Image Slider</title>
+    <style>
+        .slider{
+            width: 90%;
+            height: 600px;
+            margin: 50px auto;
+            position: relative;
+            box-shadow: 0px 0px 10px 3px gray;
+            overflow: hidden;
+            border: 5px solid #1abced;        
+        }
+        
+        .slider figure{
+            padding: 0;
+            margin: 0px;
+            position: relative;
+            height: 100%;
+            width: 500%;
+            top: 0px;
+            /*transition: left 3s;*/
+            -moz-transition: left 2s;
+            left: 0%;
+        }
+        .slider figure img{
+            
+            width: 20%;
+            height: 100%;
+            float: left;
+        }
+        .mouve{
+            display: inline-block;
+            position: absolute;
+            z-index: 10;
+            top: 33%;
+            width: 70px;
+        }
+        #back{
+            left: 5.5%;
+        }
+        #next{
+            left: 90.7%;
+        }
+        
+    </style>
+    
+    <script>
+            
+            var x = 0;
+        function mouveNext(){
+            
+            if(x==0){
+                x++;/*x=1*/
+                y=4;
+                window.pic.style.left = "-100%";}
+            else if(x==1){
+                x++;/*x=2*/
+                y=3;
+                window.pic.style.left = "-200%";
+            }
+            else if(x==2){
+                x++;/*x=3*/
+                y=2;
+                window.pic.style.left = "-300%";
+            }
+            else if(x==3){
+                x++; /*x=4*/
+                y=1;
+                window.pic.style.left = "-400%";
+            }
+            else if(x==4){
+                x=0;/*x=0*/
+                y=0;
+                window.pic.style.left = "0%";
+            }
+            
+        }
+        
+            var y =0;
+        function mouveBack(){
+            
+           if(y==0){
+                y++;/*y=1*/
+                x=4;
+                window.pic.style.left = "-400%";}
+            else if(y==1){
+                y++;/*y=2*/
+                x=3;
+                window.pic.style.left = "-300%";
+            }
+            else if(y==2){
+                y++;/*y=3*/
+                x=2;
+                window.pic.style.left = "-200%";
+            }
+            else if(y==3){
+                y++;/*y=4*/
+                x=1;
+                window.pic.style.left = "-100%";
+            }
+            else if(y==4){
+                y=0;/*y=0*/
+                x=0;
+                //window.pic.style.transitionDuration: "0s";
+                window.pic.style.left = "0%";
+            }
+        }
+        
+    </script>
+    
+</head>
+<body>
+    <div class="all">
+        <input type="image" src="img/back.png" id="back" class="mouve" onclick="mouveBack();"/>
+        <input type="image" src="img/next.png" id="next" class="mouve" onclick="mouveNext();" />
+    <div class="slider">
+        
+    <figure id="pic">
+        <img src="img/im1.jpg">
+        <img src="img/im2.png">
+        <img src="img/im3.jpeg">
+        <img src="img/im4.jpg">
+        <img src="img/im5.jpg">
+    </figure>
+    </div>
+    </div>
+</body>
+</html>
